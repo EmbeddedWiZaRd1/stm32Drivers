@@ -86,14 +86,14 @@ void GPIO_Peripheralclkcontrol(GPIO_regdef_t *pGPIOx,uint8_t EnorDi);
 
 //init and deint gpio
 void GPIO_init(gpio_handle_t *pGPIOHandle);
-void GPIO_deinit(void);
+void GPIO_deinit(gpio_handle_t *pGPIOx);
 
 //Data read write
-void GPIO_ReadfromInputpin(void);
-void GPIO_ReadfromInputport(void);
-void GPIO_WritetoOutputpin(void);
-void GPIO_WritetoOutputport(void);
-void GPIO_ToggleOutputpin(void);
+uint8_t GPIO_ReadfromInputpin(GPIO_regdef_t *pGPIOx,uint8_t Pinumber);
+uint16_t GPIO_ReadFromInputPort(GPIO_regdef_t *pGPIOx);
+void GPIO_WriteToOutputPin(GPIO_regdef_t *pGPIOx, uint8_t PinNumber, uint8_t Value);
+void GPIO_WriteToOutputPort(GPIO_regdef_t *pGPIOx, uint16_t Value);
+void GPIO_ToggleOutputPin(GPIO_regdef_t *pGPIOx, uint8_t PinNumber);
 
 //Isr handling
 void IRQ_Config(void);
